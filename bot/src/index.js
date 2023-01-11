@@ -6,7 +6,10 @@ import RandomComp from './commands/randomComp.js';
 import { compCreate } from './functions/compCreate.js';
 
 
-config(); //need it for reading the environmental variables
+/**
+ * need it for reading the environmental variables from the .env file
+ * */
+config(); 
 const TOKEN = process.env.COMP_BOT_TOKEN;
 const CLIENT_ID = process.env.CLIENT_ID;
 const GUILD_ID = process.env.GUILD_ID;
@@ -20,18 +23,24 @@ const client = new Client({
     ]
 })
 
+/**
+ * The REST class allows you to interact with the Discord API using a simplified API, rather than making raw HTTP requests.
+ */
 const rest = new REST({ version: '10' }).setToken(TOKEN);
 
+// Makes the Bot available to the Discord server
 client.login(TOKEN);
 
+// Logs when the bot is ready and available
 client.on('ready', () => {
     console.log("COMP BOT ONLINE");
 });
 
+// Interaction/slash commands handling
 client.on('interactionCreate', (interaction) => {
     if(interaction.isChatInputCommand()){
         
-        //Handling the commands
+        //Handling for the /test command
         if(interaction.commandName === 'test'){
             console.log('TEST COMMAND LAUNCHED');
             console.log("-------------------");
@@ -39,6 +48,7 @@ client.on('interactionCreate', (interaction) => {
             console.log("-------------------");
             interaction.reply({content: 'Hi tester'})
         }
+        //Handling for the /comp command
         if(interaction.commandName === 'comp'){
             console.log('COMP COMMAND LAUNCHED');
             console.log("-------------------");
@@ -53,7 +63,7 @@ client.on('interactionCreate', (interaction) => {
 //MAIN
 async function main(){
 
-    //defining my slash Commands
+    // Defining the slash commands available to the server
     const COMMANDS = [TestCommand, RandomComp];
 
     try{

@@ -1,5 +1,6 @@
 import { EmbedBuilder } from "discord.js";
 
+// Array of all the Apex Legends characters
 const LEGENDS = [
     "Ash", "Bangalore", "Catalyst", "Caustic",
     "Crypto", "Fuse", "Gibraltar", "Horizon",
@@ -9,6 +10,13 @@ const LEGENDS = [
     "Vantage", "Wattson", "Wraith"
 ]
 
+/**
+ * Create a randomly generated DUO or TRIO squad and directly returns
+ * an EmbedMessage object to be handled in the main command handling function.
+ * 
+ * @param {*} grupType string - either "duo" or "trio".
+ * @returns EmbedBuilder - Discord embed message object.
+ */
 export function compCreate(grupType){
     //random number generator
     const chooseRandom = (arr) => {
@@ -37,7 +45,13 @@ export function compCreate(grupType){
     }
 }
 
-
+/**
+ * Creates the actual embed message to be handled in the
+ * main command handling function.
+ * 
+ * @param {*} randomComp - String array containing the randomly generated Legends names.
+ * @returns EmbedBuilder - Discord Embed message object.
+ */
 function makeEmbed(randomComp){
     if(randomComp.length == 2){
         const embed = new EmbedBuilder()

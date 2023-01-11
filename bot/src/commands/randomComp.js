@@ -1,5 +1,10 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
 
+/**
+ * Defines the behaviour of the /comp command.
+ * Basically I'm giving it a name and a set of String options
+ * that will be shown as a select menu in the Discord UI.
+ */
 const randomComp = new SlashCommandBuilder()
     .setName('comp')
     .setDescription('Create a random comp for duo or trio')
@@ -14,4 +19,7 @@ const randomComp = new SlashCommandBuilder()
             )
     )
 
+/*
+Exporting it as a JSON object for compatibility
+*/
 export default randomComp.toJSON();
