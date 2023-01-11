@@ -2,7 +2,7 @@
 ### My very first bot, and I'm proud of it!
 
 As an Apex Legends fan and hardcore gamer I decided to create a Discord Bot that 
-generates a random DUO or TRIO squad when asked to do so.
+generates a random DUO or TRIO squad to spice up the gamplay experience!
 
 The bot is written with [Discord.js](https://www.npmjs.com/package/discord.js) v14.7.1 with the help of [dotenv](https://www.npmjs.com/package/dotenv) 
 for the environmental variables and [nodemon](https://www.npmjs.com/package/nodemon) for an easier node.js development experience.
