@@ -11,6 +11,15 @@ It has a very simple usage, basically after prompting the "/comp" command it wil
 a select menu from where you must select either DUO or TRIO, based on your request it will respond 
 with an embed message containing your randomly generated squad.
 
+## UPDATE
+
+- The /comp command has been improved, now instead of responding using a single boring embed message with only
+the names of the Lengeds it uses a message for Legend with its corresponding name and image.
+- Now we have private Arena matches in Apex Legends, so I created a simple command that takes six names,
+shuffles them and splits them into two separate teams.
+
+
+
 
 
 
