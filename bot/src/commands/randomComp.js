@@ -4,6 +4,7 @@ import { SlashCommandBuilder } from '@discordjs/builders';
  * Defines the behaviour of the /comp command.
  * Basically I'm giving it a name and a set of String options
  * that will be shown as a select menu in the Discord UI.
+ * Returns the command in its JSON format.
  */
 const randomComp = new SlashCommandBuilder()
     .setName('comp')

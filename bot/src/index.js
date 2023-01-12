@@ -60,6 +60,7 @@ client.on('interactionCreate', (interaction) => {
             console.log("-------------------");
             interaction.reply({embeds: reply})
         }
+        //Handling for the /shuffle command
         if(interaction.commandName === 'shuffle'){
             console.log('SHUFFLE COMMAND LAUNCHED');
             console.log("-------------------");
@@ -71,9 +72,7 @@ client.on('interactionCreate', (interaction) => {
                 interaction.options.get('player5').value,
                 interaction.options.get('player6').value
             ];
-            const reply = shufflePlayers(players);
-            console.log("-------------------");
-            interaction.reply({embeds: reply})
+            interaction.reply({embeds: shufflePlayers(players)})
         }
 
     };

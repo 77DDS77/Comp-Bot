@@ -1,9 +1,9 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 
 /**
- * Defines the behaviour of the /comp command.
- * Basically I'm giving it a name and a set of String options
- * that will be shown as a select menu in the Discord UI.
+ * This slash command asks the user to write six strings (players' names). 
+ * It's handled in the index.js via the `shufflePlayers()` function.
+ * Returns the command in its JSON format.
  */
 const shuffleSquad = new SlashCommandBuilder()
     .setName("shuffle")

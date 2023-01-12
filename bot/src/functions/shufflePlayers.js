@@ -1,6 +1,12 @@
 import { EmbedBuilder } from "discord.js";
 
-
+/**
+ * Takes an array of six strings (players' names),
+ * then shuffles them and splits them into two separate teams.
+ * 
+ * @param {*} players - String[] containing the players' names.
+ * @returns EmbedBuilder[] - Array of EmbedMessages containig the two teams.
+ */
 export function shufflePlayers(players) {
     // Shuffle the players array (Fisher-Yates shuffle)
     for (let i = players.length - 1; i > 0; i--) {
@@ -12,9 +18,7 @@ export function shufflePlayers(players) {
     let squad1 = players.slice(0, 3);
     let squad2 = players.slice(3);
 
-    let embedsReply = makeEmbeds(squad1, squad2);
-
-    return embedsReply;
+    return makeEmbeds(squad1, squad2);;
 }
 
 
@@ -24,7 +28,7 @@ export function shufflePlayers(players) {
  * 
  * @param {*} squad1 - String array containing the randomly shuffled players name.
  * @param {*} squad2 - String array containing the randomly shuffled players name.
- * @returns EmbedBuilder - Discord Embed message objects.
+ * @returns EmbedBuilder[] - Array of EmbedMessages.
  */
 function makeEmbeds(squad1, squad2){
 
