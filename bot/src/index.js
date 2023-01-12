@@ -1,9 +1,11 @@
 import { Client, GatewayIntentBits, Routes } from 'discord.js';
 import { config } from 'dotenv';
 import { REST } from '@discordjs/rest';
+import { compCreate } from './functions/compCreate.js';
+import { shufflePlayers } from './functions/shufflePlayers.js';
 import TestCommand from './commands/test.js'
 import RandomComp from './commands/randomComp.js';
-import { compCreate } from './functions/compCreate.js';
+import ShuffleSquad from './commands/shuffleSquad.js';
 
 
 /**
@@ -17,6 +19,8 @@ const GUILD_ID = process.env.GUILD_ID;
 //Setting up the bot intents
 const client = new Client({
     intents:[
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMembers,
         GatewayIntentBits.GuildBans,
         GatewayIntentBits.GuildMessages,
         GatewayIntentBits.MessageContent
@@ -54,7 +58,8 @@ client.on('interactionCreate', (interaction) => {
             console.log("-------------------");
             const reply = compCreate(interaction.options.get('group').value);
             console.log("-------------------");
-            interaction.reply({embeds: [reply]})
+            interaction.reply({embeds: reply})
+        }
         }
 
     };
@@ -64,7 +69,7 @@ client.on('interactionCreate', (interaction) => {
 async function main(){
 
     // Defining the slash commands available to the server
-    const COMMANDS = [TestCommand, RandomComp];
+    const COMMANDS = [TestCommand, RandomComp, ShuffleSquad];
 
     try{
         console.log('Started refreshing application (/) commands.');
